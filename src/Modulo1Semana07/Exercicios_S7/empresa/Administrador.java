@@ -1,4 +1,4 @@
-package Modulo1Semana07.Exercicios_S7;
+package Modulo1Semana07.Exercicios_S7.empresa;
 
 public class Administrador extends Empregado {
     private double ajudaDeCusto;

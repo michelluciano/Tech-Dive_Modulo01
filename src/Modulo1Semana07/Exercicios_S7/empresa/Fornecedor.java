@@ -1,6 +1,6 @@
-package Modulo1Semana07.Exercicios_S7;
+package Modulo1Semana07.Exercicios_S7.empresa;
 
-public class Fornecedor extends Pessoa{
+public class Fornecedor extends Pessoa {
 
     private double valorCredito;
     private double valorDivida;
