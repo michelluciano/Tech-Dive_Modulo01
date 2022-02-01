@@ -1,0 +1,5 @@
+Número de espaços: 1 
+Número de consoantes: 2 
+Número de vogais: 3 
+Número de letras: 5 
+Número de palavras: 1 
