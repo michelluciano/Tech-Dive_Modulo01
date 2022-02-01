@@ -1,0 +1,3 @@
+Testando printstream
+
+Testando printstream escrevendo na mesma linhaTestando printstream escrevendo na mesma linha

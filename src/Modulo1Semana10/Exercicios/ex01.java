@@ -1,9 +1,7 @@
 package Modulo1Semana10.Exercicios;
 
-import org.w3c.dom.CDATASection;
-
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.time.Period;
 import java.util.Scanner;
 
 public class ex01 {
@@ -15,15 +13,18 @@ public class ex01 {
 
         System.out.println("Hoje:" + hoje);
 
-        System.out.println("Digite a sua data de nascimento:");
-        String dataNasc = input.nextLine();
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String dataNascForm = dataNasc.format(data.valueOf(formato));
-        System.out.println("Data formatada:" + dataNascForm);
+        System.out.println("Digite o dia do seu nascimento:");
+        int diaNasc = input.nextInt();
+        System.out.println("Digite o mes do seu nascimento:");
+        int mesNasc = input.nextInt();
+        System.out.println("Digite o ano do seu nascimento:");
+        int anoNasc = input.nextInt();
 
-        int anos = dataNascForm.getY - hoje.getYear();
+        LocalDate dataNasc = LocalDate.of(anoNasc, mesNasc, diaNasc);
+        System.out.println("Você nasceu no dia: "+ dataNasc);
 
-
+        int idadeAnos =  hoje.getYear() - dataNasc.getYear();
+        Period periodo = Period.between(dataNasc,hoje);
+        System.out.println("Você tem "+periodo.getYears()+" anos de idade.");
     }
-
 }

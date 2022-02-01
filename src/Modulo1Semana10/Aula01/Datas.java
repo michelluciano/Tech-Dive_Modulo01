@@ -11,12 +11,12 @@ public class Datas {
 
     public static void main(String[] args) {
         LocalDate hoje = LocalDate.now();
-        System.out.println(hoje);
+        System.out.println("Data de hoje:"+hoje);
 
         LocalDate olimpiadasParis = LocalDate.of(2024, Month.JULY, 26);
         LocalDate olimpiadasParisInt = LocalDate.of(2024, 7, 26);
-        System.out.println(olimpiadasParis);
-        System.out.println(olimpiadasParisInt);
+        System.out.println("Data das olimpiadas: "+olimpiadasParis);
+        System.out.println("Data das olimpiadas com numero: "+olimpiadasParisInt);
 
         int anos = olimpiadasParis.getYear() - hoje.getYear();
         System.out.println(anos);
@@ -79,7 +79,7 @@ public class Datas {
         System.out.println(dataHoraFormatado);
 
         YearMonth copaDoMundo2022 = YearMonth.of(2022, Month.NOVEMBER);
-        System.out.println(copaDoMundo2022);
+        System.out.println("copaDoMundo2022 "+copaDoMundo2022);
 
         MonthDay natal = MonthDay.of(Month.DECEMBER, 25);
         System.out.println(natal);
