@@ -1,8 +1,8 @@
-package Modulo1Semana09.Aula01.Exercicios.contabancaria;
+package Modulo1Semana09.Exercicios.contabancaria;
 
-import Modulo1Semana09.Aula01.Exercicios.contabancaria.contas.Conta;
-import Modulo1Semana09.Aula01.Exercicios.contabancaria.contas.ContaCorrente;
-import Modulo1Semana09.Aula01.Exercicios.contabancaria.contas.ContaPoupanca;
+import Modulo1Semana09.Exercicios.contabancaria.contas.Conta;
+import Modulo1Semana09.Exercicios.contabancaria.contas.ContaCorrente;
+import Modulo1Semana09.Exercicios.contabancaria.contas.ContaPoupanca;
 
 import java.util.ArrayList;
 import java.util.List;
