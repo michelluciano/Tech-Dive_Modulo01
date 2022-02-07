@@ -1,0 +1,109 @@
+/* ESTRUTURA DE CRIAÇÃO E INSERÇÃO DE REGISTROS NAS TABELAS PARA VENDAS DE PRODUTOS.
+   NESSA MODELAGEM CRIAMOS AS TABELAS: PRODUTO, CATEGORIA, CLIENTE, VENDAS E ITENS DE VENDAS
+   OBS.: 1) TODAS AS TABELAS JÁ SERÃO CRIADAS COM O CAMPO CHAVE PRIMÁRIA E INCREMENTAL
+   		 2) VAMOS DEFINIR CAMPOS NULOS E DE PREENCHIMENTO OBRIGATÓRIO
+   */
+
+
+CREATE TABLE public.Categoria (
+    CategoriaId INTEGER PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    Nome VARCHAR(200) NOT NULL,
+    Descricao VARCHAR(200) NOT NULL
+);
+
+
+
+CREATE TABLE public.Produto (
+    ProdutoId INTEGER PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    Nome VARCHAR(200) NOT NULL,
+    Descricao VARCHAR(200) NOT NULL,
+    ValorUnitario DECIMAL(10,2),
+    fk_Categoria_CategoriaId INTEGER
+);
+ 
+ALTER TABLE public.Produto ADD CONSTRAINT FK_Produto_2
+    FOREIGN KEY (fk_Categoria_CategoriaId)
+    REFERENCES Categoria (CategoriaId)
+    ON DELETE CASCADE;
+
+
+CREATE TABLE Cliente (
+    ClienteId INTEGER PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    Nome VARCHAR(200) NOT NULL,
+    Endereco VARCHAR(200) NOT NULL,
+    ClienteAtivo BOOLEAN NOT NULL
+);
+
+CREATE TABLE public.Vendas (
+    VendaId INTEGER PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    ClienteId INTEGER,
+    PagamentoConfirmado BOOLEAN,
+    VendaConcluida BOOLEAN
+);
+
+CREATE TABLE Itens_Venda (
+    Item_Venda_Id INTEGER PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    Quantidade DECIMAL(10,2),
+    DataVenda DATE,
+    fk_Produto_ProdutoId INTEGER,
+    fk_Vendas_VendaId INTEGER
+);
+
+ALTER TABLE public.Itens_Venda ADD CONSTRAINT FK_Itens_Venda_2
+    FOREIGN KEY (fk_Produto_ProdutoId)
+    REFERENCES public.Produto (ProdutoId)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE public.Itens_Venda ADD CONSTRAINT FK_Itens_Venda_3
+    FOREIGN KEY (fk_Vendas_VendaId)
+    REFERENCES public.Vendas (VendaId)
+    ON DELETE RESTRICT;
+
+/*SCRITPS DE INSERT DE DADOS*/
+
+INSERT INTO Categoria(Nome, Descricao) VALUES ('Eletrodoméstico', 'Categoria destinada a produtos específicos');
+INSERT INTO Categoria(Nome, Descricao) VALUES ('Informática', 'Categoria destinada a produtos específicos');
+INSERT INTO Categoria(Nome, Descricao) VALUES ('Vestuário', 'Categoria destinada a produtos específicos');
+
+INSERT INTO Produto (Nome, Descricao, ValorUnitario,fk_Categoria_CategoriaId) VALUES('Máquina de lavar 110V Eletrolux', 'máquina de lavar de alto desempenho', 2546.99, 1);
+INSERT INTO Produto (Nome, Descricao, ValorUnitario,fk_Categoria_CategoriaId) VALUES('Notebook Dell i7 última geração ', 'Notebook de 16GB 256GB', 5236.99, 2);
+INSERT INTO Produto (Nome, Descricao, ValorUnitario,fk_Categoria_CategoriaId) VALUES('Calça jeans Wrangler tamanho 44 ', 'lavagem escura', 236.99, 3);
+INSERT INTO Produto (Nome, Descricao, ValorUnitario,fk_Categoria_CategoriaId) VALUES('Camiseta Hering Tamanho P ', 'cor marrom', 16.99, 3);
+INSERT INTO Produto (Nome, Descricao, ValorUnitario,fk_Categoria_CategoriaId) VALUES('Camiseta Hering Tamanho M ', 'cor marrom', 16.99, 3);
+INSERT INTO Produto (Nome, Descricao, ValorUnitario,fk_Categoria_CategoriaId) VALUES('Camiseta Hering Tamanho G ', 'cor marrom', 16.99, 3);
+INSERT INTO Produto (Nome, Descricao, ValorUnitario,fk_Categoria_CategoriaId) VALUES('Camiseta Hering Tamanho GG ', 'cor marrom', 16.99, 3);
+
+INSERT INTO Cliente(Nome, Endereco, ClienteAtivo) VALUES ('Patricia Lima', 'Av. Dom Pedro II, 1450 - São Cristóvão Lages/SC - CEP: 88509-001', True);
+INSERT INTO Cliente(Nome, Endereco, ClienteAtivo) VALUES ('Pedro Rodrigues', 'Rua Nove, nr 456 - Vila Primavera - Espírito Santo - ES - CEP: 45678-543', True);
+INSERT INTO Cliente(Nome, Endereco, ClienteAtivo) VALUES ('Nazaré Pereira', 'Avenida Paulista, 456 - São Paulo - SP - CEP: 03456-432', True);
+
+INSERT INTO Vendas(ClienteId, PagamentoConfirmado, VendaConcluida) VALUES (1, False, False);
+INSERT INTO Vendas(ClienteId, PagamentoConfirmado, VendaConcluida) VALUES (1, True, False);
+INSERT INTO Vendas(ClienteId, PagamentoConfirmado, VendaConcluida) VALUES (1, True, True);
+INSERT INTO Vendas(ClienteId, PagamentoConfirmado, VendaConcluida) VALUES (2, True, False);
+INSERT INTO Vendas(ClienteId, PagamentoConfirmado, VendaConcluida) VALUES (2, True, True);
+INSERT INTO Vendas(ClienteId, PagamentoConfirmado, VendaConcluida) VALUES (2, True, True);
+INSERT INTO Vendas(ClienteId, PagamentoConfirmado, VendaConcluida) VALUES (3, True, True);
+INSERT INTO Vendas(ClienteId, PagamentoConfirmado, VendaConcluida) VALUES (3, True, True);
+
+
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(1,'02/12/2021', 1,1);
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(3,'02/12/2021', 3,1);
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(1,'12/01/2022', 2,2);
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(2,'12/01/2022', 3,3);
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(2,'12/01/2022', 3,3); 
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(1,'12/12/2021', 4,4);
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(1,'12/12/2021', 5,4);
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(1,'01/11/2021', 6,5); 
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(1,'01/11/2021', 1,5);
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(1,'03/01/2022', 2,6);
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(1,'03/01/2022', 3,7);
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(1,'03/01/2022', 4,7);
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(1,'03/01/2022', 5,7);
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(2,'25/12/2021', 6,8);
+INSERT INTO Itens_Venda(Quantidade,DataVenda,fk_Produto_ProdutoId,fk_Vendas_VendaId) VALUES(1,'25/12/2021', 7,8);
+
+
+
+
+
