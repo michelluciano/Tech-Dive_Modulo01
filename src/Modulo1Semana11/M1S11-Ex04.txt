@@ -3,36 +3,36 @@
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* tabela ALUNO */
 
-INSERT INTO Aluno (Id,Nome,Fone,Cpf,DtNasc,Sexo) VALUES (1,"Marcos Michel", "33153044","03/02/1988","Masculino");
-INSERT INTO Aluno (Id,Nome,Fone,Cpf,DtNasc,Sexo) VALUES (2,"Barry Allen", "33153030","01/08/1998","Masculino");
-INSERT INTO Aluno (Id,Nome,Fone,Cpf,DtNasc,Sexo) VALUES (3,"Clarck Kent", "33153010","12/02/1999","Masculino");
-INSERT INTO Aluno (Id,Nome,Fone,Cpf,DtNasc,Sexo) VALUES (4,"Diana Silva", "33153000","03/12/2002","Masculino");
-INSERT INTO Aluno (Id,Nome,Fone,Cpf,DtNasc,Sexo) VALUES (5,"Bruce Wayne", "33153055","20/08/2005","Masculino");
+INSERT INTO Aluno (Id,Nome,Fone,Cpf,DtNasc,Sexo) VALUES (1,'Marcos Michel', '33153044','12345678910','03/02/1988','Masculino');
+INSERT INTO Aluno (Id,Nome,Fone,Cpf,DtNasc,Sexo) VALUES (2,'Barry Allen', '33153030','12345678911','01/08/1998','Masculino');
+INSERT INTO Aluno (Id,Nome,Fone,Cpf,DtNasc,Sexo) VALUES (3,'Clarck Kent', '33153010','12345678912','12/02/1999','Masculino');
+INSERT INTO Aluno (Id,Nome,Fone,Cpf,DtNasc,Sexo) VALUES (4,'Diana Silva', '33153000','12345678913','03/12/2002','Masculino');
+INSERT INTO Aluno (Id,Nome,Fone,Cpf,DtNasc,Sexo) VALUES (5,'Bruce Wayne', '33153055','12345678914','20/08/2005','Masculino');
 
 /* tabela ENDERECO */
 
-INSERT INTO Endereco (Id,Rua,Numero,Bairro,Cidade,Estado,Outros,fk_Aluno_Id) VALUES (1,"Av Brasil", 12, "Centro", "SC","casa", 1);
-INSERT INTO Endereco (Id,Rua,Numero,Bairro,Cidade,Estado,Outros,fk_Aluno_Id) VALUES (2,"Av Brasil", 287, "Smabaqui", "RS","apartamento", 2);
-INSERT INTO Endereco (Id,Rua,Numero,Bairro,Cidade,Estado,Outros,fk_Aluno_Id) VALUES (3,"Av Brasil", 1782, "Centro", "SP","casa", 3);
-INSERT INTO Endereco (Id,Rua,Numero,Bairro,Cidade,Estado,Outros,fk_Aluno_Id) VALUES (4,"Av Brasil", 1662, "Trindade", "AC","Ap", 4);
-INSERT INTO Endereco (Id,Rua,Numero,Bairro,Cidade,Estado,Outros,fk_Aluno_Id) VALUES (5,"Av Brasil", 612, "Centro", "PR","casa", 5);
+INSERT INTO Endereco (Id,Rua,Numero,Bairro,Cidade,Estado,Outros,fk_Aluno_Id) VALUES (1,'Av Brasil', 12, 'Centro','Florianópolis', 'SC','casa', 1);
+INSERT INTO Endereco (Id,Rua,Numero,Bairro,Cidade,Estado,Outros,fk_Aluno_Id) VALUES (2,'Av Brasil', 287, 'Smabaqui','Passo Fundo', 'RS','apartamento', 2);
+INSERT INTO Endereco (Id,Rua,Numero,Bairro,Cidade,Estado,Outros,fk_Aluno_Id) VALUES (3,'Av Brasil', 1782, 'Centro', 'São Paulo','SP','casa', 3);
+INSERT INTO Endereco (Id,Rua,Numero,Bairro,Cidade,Estado,Outros,fk_Aluno_Id) VALUES (4,'Av Brasil', 1662, 'Trindade', 'Bela terra','AC','Ap', 4);
+INSERT INTO Endereco (Id,Rua,Numero,Bairro,Cidade,Estado,Outros,fk_Aluno_Id) VALUES (5,'Av Brasil', 612, 'Centro', 'Curitiba','PR','casa', 5);
 
 /* tabela CURSO */
 
-INSERT INTO Curso (Id,Nome,Semestre) VALUES (1, "Java", "2 semestres");
-INSERT INTO Curso (Id,Nome,Semestre) VALUES (2, "JavaScript", "2 semestres");
-INSERT INTO Curso (Id,Nome,Semestre) VALUES (3, "Banco de dados", "2 semestres");
-INSERT INTO Curso (Id,Nome,Semestre) VALUES (4, "Metodologias ágeis", "2 semestres");
-INSERT INTO Curso (Id,Nome,Semestre) VALUES (5, "Programação OO", "2 semestres");
+INSERT INTO Curso (Id,Nome,Semestre) VALUES (1, 'Java', '2 semestres');
+INSERT INTO Curso (Id,Nome,Semestre) VALUES (2, 'JavaScript', '2 semestres');
+INSERT INTO Curso (Id,Nome,Semestre) VALUES (3, 'Banco de dados', '2 semestres');
+INSERT INTO Curso (Id,Nome,Semestre) VALUES (4, 'Metodologias ágeis', '2 semestres');
+INSERT INTO Curso (Id,Nome,Semestre) VALUES (5, 'Programação OO', '2 semestres');
 
 
 /* tabela PROFESSOR*/
 
-INSERT INTO Professor (Id,Nome,Graduacao,Fone) values (1,"Fernando Fernandez", "Mestre", "99654445");
-INSERT INTO Professor (Id,Nome,Graduacao,Fone) values (2,"Gabriel Gabrielez", "Mestre", "99654445");
-INSERT INTO Professor (Id,Nome,Graduacao,Fone) values (3,"Mario Mariano", "Mestre", "99654445");
-INSERT INTO Professor (Id,Nome,Graduacao,Fone) values (4,"Maria Marildez", "Mestre", "99654445");
-INSERT INTO Professor (Id,Nome,Graduacao,Fone) values (5,"Joaquina Maria", "Mestre", "99654445");
+INSERT INTO Professor (Id,Nome,Graduacao,Fone) values (1,'Fernando Fernandez', 'Mestre', '99654445');
+INSERT INTO Professor (Id,Nome,Graduacao,Fone) values (2,'Gabriel Gabrielez', 'Mestre', '99654445');
+INSERT INTO Professor (Id,Nome,Graduacao,Fone) values (3,'Mario Mariano', 'Mestre', '99654445');
+INSERT INTO Professor (Id,Nome,Graduacao,Fone) values (4,'Maria Marildez', 'Mestre', '99654445');
+INSERT INTO Professor (Id,Nome,Graduacao,Fone) values (5,'Joaquina Maria', 'Mestre', '99654445');
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
